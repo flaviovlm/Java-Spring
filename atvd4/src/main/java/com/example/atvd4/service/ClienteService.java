@@ -14,12 +14,12 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    public List <Cliente> listAll (){
+    public List <Cliente> listAllCliente (){
 
         return clienteRepository.findAll();
     }
 
-    public void save (Cliente cliente){
+    public void saveCliente (Cliente cliente){
         if (clienteRepository.findByEmail(cliente.getEmail()).isPresent()){
             throw new RuntimeException("Cliente já cadastrado!");
         }
@@ -27,7 +27,7 @@ public class ClienteService {
         clienteRepository.save(cliente);
     }
 
-    public Cliente update (UUID id, Cliente cliente){
+    public Cliente updateCliente (UUID id, Cliente cliente){
         if (!clienteRepository.existsById(id)){
             throw new RuntimeException("Cliente não encontrado!");
         }
@@ -36,11 +36,13 @@ public class ClienteService {
          return clienteRepository.save(cliente);
     }
 
-    public void delete (UUID id){
+    public void deleteCliente (UUID id){
         if (!clienteRepository.existsById(id)){
             throw new RuntimeException("Cliente não encontrado!");
         }
 
         clienteRepository.deleteById(id);
     }
+
+
 }

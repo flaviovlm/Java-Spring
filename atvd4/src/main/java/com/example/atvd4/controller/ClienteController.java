@@ -21,25 +21,25 @@ public class ClienteController {
     @GetMapping
     public List <Cliente> listAll (){
 
-        return clienteService.listAll();
+        return clienteService.listAllCliente();
     }
 
     @PostMapping
     public ResponseEntity <Cliente> save (@RequestBody Cliente cliente){
-        clienteService.save(cliente);
+        clienteService.saveCliente(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
     }
 
     @PutMapping ("/{id}")
     public ResponseEntity <Cliente> update (@PathVariable UUID id, @RequestBody Cliente cliente){
 
-        clienteService.update(id,cliente);
+        clienteService.updateCliente(id,cliente);
         return ResponseEntity.status(HttpStatus.OK).body(cliente);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity <Void> delete (@PathVariable UUID id){
-        clienteService.delete(id);
+        clienteService.deleteCliente(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
