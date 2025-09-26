@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
-@Repository
+@Entity
 public class Aluno {
 
     @Id @GeneratedValue (strategy = GenerationType.UUID)
